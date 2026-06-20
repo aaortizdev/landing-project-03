@@ -40,7 +40,7 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
                     <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">Catálogo de Tratamientos</h2>
-                    <p class="text-on-surface-variant mb-6 text-lg">Olvídate de preguntar por WhatsApp. Conoce de inmediato nuestras soluciones odontológicas diseñadas para devolverte la confianza.</p>
+                    <p class="text-on-surface-variant mb-6 text-lg">Conoce de inmediato nuestras soluciones odontológicas diseñadas para devolverte la confianza.</p>
                     <ul class="space-y-3">
                         <li class="flex items-center gap-2 text-on-surface"><span class="material-symbols-outlined text-secondary">check_circle</span> Ortodoncia avanzada y estética.</li>
                         <li class="flex items-center gap-2 text-on-surface"><span class="material-symbols-outlined text-secondary">check_circle</span> Diseño de sonrisa digital.</li>
@@ -76,7 +76,7 @@
                     <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">¿Por qué confiar en DENTAL?</h2>
                     <p class="text-on-surface-variant mb-6 text-lg">La opinión de cientos de pacientes respalda nuestro compromiso con tu salud bucal. Nos enfocamos en un trato humano y cero dolor.</p>
                     <ul class="space-y-3">
-                        <li class="flex items-center gap-2 text-on-surface"><span class="material-symbols-outlined text-secondary">star</span> +500 pacientes satisfechos este año.</li>
+                        <li class="flex items-center gap-2 text-on-surface"><span class="material-symbols-outlined text-secondary">star</span> +300 pacientes satisfechos este año.</li>
                         <li class="flex items-center gap-2 text-on-surface"><span class="material-symbols-outlined text-secondary">star</span> Equipo de especialistas certificados.</li>
                         <li class="flex items-center gap-2 text-on-surface"><span class="material-symbols-outlined text-secondary">star</span> Atención rápida, sin esperas largas.</li>
                     </ul>
@@ -97,6 +97,11 @@
                         <div>
                             <label class="block text-sm font-medium mb-1" for="nombrePaciente">Nombre Completo</label>
                             <input class="w-full px-4 py-3 rounded-lg border border-outline focus:border-primary focus:ring-1 focus:ring-primary outline-none" id="nombrePaciente" type="text" placeholder="Ej. Carlos Mendoza" required/>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-1" for="telefonoPaciente">Número de Celular</label>
+                            <input class="w-full px-4 py-3 rounded-lg border border-outline focus:border-primary focus:ring-1 focus:ring-primary outline-none" id="telefonoPaciente" type="tel" placeholder="Ej. 099 123 4567" required/>
                         </div>
                         
                         <div>
@@ -125,11 +130,15 @@
                 </div>
                 <h2 class="font-heading text-3xl font-bold mb-4 text-primary">¡Solicitud Recibida Exitosamente!</h2>
                 <p class="text-on-surface-variant mb-6 text-lg">Hemos registrado tu solicitud en nuestro sistema. Aquí tienes el resumen de tu pre-reserva:</p>
-                
+
                 <div class="bg-background border border-outline p-6 rounded-xl text-left inline-block w-full max-w-md shadow-sm">
                     <div class="mb-3">
                         <span class="text-sm text-on-surface-variant block">Paciente:</span>
                         <span class="font-bold text-lg text-on-surface" id="res-nombre">--</span>
+                    </div>
+                    <div class="mb-3">
+                        <span class="text-sm text-on-surface-variant block">Contacto:</span>
+                        <span class="font-bold text-lg text-on-surface" id="res-telefono">--</span>
                     </div>
                     <div>
                         <span class="text-sm text-on-surface-variant block">Motivo de consulta:</span>
