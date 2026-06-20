@@ -1,17 +1,32 @@
 
-import './styles.css';
-
-// Aquí puedes añadir toda la interactividad de tu página.
-// Por ejemplo, para que el botón de menú móvil haga algo:
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("¡Módulo cargado correctamente!");
+    console.log("Sistema DENTAL inicializado.");
+
+    const formCita = document.getElementById('formulario-cita');
+    const seccionResultado = document.getElementById('resultado-interaccion');
     
-    // Si quisieras darle funcionalidad al botón del menú:
-    const menuBtn = document.getElementById('menu-btn');
-    if (menuBtn) {
-        menuBtn.addEventListener('click', () => {
-            console.log('Menú presionado');
-            // Aquí iría la lógica para abrir/cerrar el menú
+    const resNombre = document.getElementById('res-nombre');
+    const resTratamiento = document.getElementById('res-tratamiento');
+
+    if (formCita) {
+        formCita.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const nombreIngresado = document.getElementById('nombrePaciente').value;
+            const tratamientoSeleccionado = document.getElementById('tratamientoInteres').value;
+
+            // Interactuamos con el DOM para mostrar los datos
+            resNombre.textContent = nombreIngresado;
+            resTratamiento.textContent = tratamientoSeleccionado;
+
+            // Hacemos visible la sección de resultados
+            seccionResultado.classList.remove('hidden');
+
+            // Hacemos scroll suave hasta la nueva sección para mejor UX
+            seccionResultado.scrollIntoView({ behavior: 'smooth' });
+            
+            // Opcional: resetear el formulario
+            formCita.reset();
         });
     }
 });
