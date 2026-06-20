@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const resTratamiento = document.getElementById('res-tratamiento');
 
     if (formCita) {
-        formCita.addEventListener('submit', (e) => {
+        formCita.addEventListener('submit', async (e) => {
             e.preventDefault();
 
             // Obtenemos los valores de los inputs
@@ -26,8 +26,36 @@ document.addEventListener('DOMContentLoaded', () => {
             // Hacemos visible la sección
             seccionResultado.classList.remove('hidden');
             seccionResultado.scrollIntoView({ behavior: 'smooth' });
+
+            // Creación del objeto a enviar
+            const cita = {
+                nombre: nombreIngresado,
+                telefono: telefonoIngresado,
+                tratamiento: tratamientoSeleccionado
+            }
             
-            formCita.reset();
+            try {
+                const respuesta = await fetch("https://jsonplaceholder.typicode.com/posts", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(cita)
+                });
+
+                if (!respuesta.ok) {
+                    throw new Error("Error al enviar la cita");
+                }
+
+                const datos = await respuesta.json();
+
+                console.log("Respuesta del servidor: ", datos);
+
+                formCita.reset();
+
+            } catch (error) {
+                console.error(error);
+            }
         });
     }
 });
